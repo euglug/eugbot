@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+
+# including 
+export HUBOT_IRC_SERVER=irc.freenode.net
+export HUBOT_IRC_ROOMS="#euglug"
+export HUBOT_IRC_NICK=eugbot
+export HUBOT_IRC_NICKSERV_USERNAME=euglug
+export HUBOT_IRC_NICKSERV_PASSWORD=eugbot
+
+
+
+exec node_modules/.bin/hubot -a irc --name "eugbot" "$@"
